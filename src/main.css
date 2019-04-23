@@ -1,8 +1,20 @@
 
-.inputbox{
+#inputbox{
     display:none;
 }
 
 .welcomebox{
     display:block;
+}
+
+.success, .failure{
+    display:none;
+
+}
+.success{
+    background-color: aquamarine;
+
+}
+.failure{
+    background-color: red;
 }
