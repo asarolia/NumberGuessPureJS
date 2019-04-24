@@ -30,6 +30,9 @@
             </div> -->
             <span id="typed"></span>
 
+            <br/>
+            <br/>
+
             <div class="inputbox" id ="inputbox">
                     <form class="form-inline">
                             <div class="form-group mb-2">
@@ -40,16 +43,35 @@
                               <label for="inputNumber" class="sr-only">Number value</label>
                               <input type="number" class="form-control" id="inputNumber" min="1" max="100" placeholder="">
                             </div>
-                            <button type="submit" class="btn btn-primary mb-2">Submit Guess</button>
+                            <button id="submitbtn" type="submit" class="btn btn-primary mb-2">Submit Guess</button>
+                            <button id="restartbtn" type="submit" class="btn btn-primary mb-2">Restart Game</button>
                     </form>
 
             </div>
+            
+            <br/>
+            <br/>
+            
+            <br/>
+            <br/>
+
+            <div class="container">
+                    <div class="row">
+                      <div class="col-sm" id="chancebox">
+                        <h3>Chances left : </h3> <p id="counter"></p>
+                      </div>
+                      <div class="col-sm" id="hintbox">
+                        
+                      </div>
+                    </div>
+            </div>
+
             <div class="failure" id="failMessageBox">
-                failure
+                
 
             </div>
             <div class="success" id="succcessMessageBox">
-                Success
+                
             </div>
             <div id="restartbox">
 

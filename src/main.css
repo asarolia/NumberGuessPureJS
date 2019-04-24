@@ -18,3 +18,17 @@
 .failure{
     background-color: red;
 }
+
+#hintbox{
+    background-color: beige;
+    display:none;
+}
+
+#chancebox{
+    display : none;
+}
+
+#restartbtn{
+    display:none;
+    
+}
