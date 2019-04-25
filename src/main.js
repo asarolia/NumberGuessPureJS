@@ -2,9 +2,9 @@
 
 
     
-var randomNumber = Math.floor(Math.random()*Math.floor(100));  // get the random number
+var randomNumber = Math.floor(Math.random()*Math.floor(100)) + 1;  // get random number between 1 and 100
 //console.log(randomNumber);
-const MAX_CHANCE = 5;
+const MAX_CHANCE = 10;
 
 var counter = 0;
 var continueProgram = true;
@@ -18,7 +18,7 @@ var continueProgram = true;
             strings: ["<p>Do you love <strong>numbers?</strong></p>",
                     "<p>Do you have strong <strong> number sense?</strong></p>",
                     "<p>Do you have in you <strong>to guess right number?</strong></p>",
-                "<p>Take the challenge, you will get 5 Chances for right guess. If ready, then <button id=\"startgame\" onclick=\"start()\" type=\"submit\" class=\"btn btn-primary mb-2\">Start Game</button></p>"],
+                "<p>Take the challenge to identify number between 1 and 100, you will get "+MAX_CHANCE+" chances for right guess. If ready, then <button id=\"startgame\" onclick=\"start()\" type=\"submit\" class=\"btn btn-primary mb-2\">Start Game</button></p>"],
             typeSpeed: 40,
             smartBackspace: true,
             showCursor: false
@@ -121,7 +121,9 @@ var continueProgram = true;
 
        let numberValue = Number.parseInt(document.getElementById('inputNumber').value);
 
-       if(numberValue != undefined)
+       console.log(numberValue);
+
+       if(!isNaN(numberValue))
        {
            counter += 1;
             
@@ -139,7 +141,16 @@ var continueProgram = true;
             {
                 
                 showSuccessMsg();
+                showMessage('hintbox',"Bingo, that's a Bulls Eye guess!");
+
                 continueProgram = false;
+
+                // disable form control on success
+                 // disable form controls
+                disableControl('inputNumber');
+                disableControl('submitbtn');
+                
+                // enable restart option
                 enableRestart();
 
 
@@ -169,9 +180,9 @@ var continueProgram = true;
                 
                 showMessage('hintbox',hintmsg);
 
-                // clear inoput control
+                // clear input box and put focus
 
-                showMessage('inputNumber',"");
+                setControlFocus('inputNumber',"");
 
             }
 
@@ -211,6 +222,18 @@ var continueProgram = true;
         let elemShow = document.getElementById(id);
 
         elemShow.innerText = msg;
+        elemShow.style.display = 'block';
+
+
+    }
+
+    
+    function setControlFocus(id,value){
+
+        let elemShow = document.getElementById(id);
+
+        elemShow.value = value;
+        elemShow.focus();
         elemShow.style.display = 'block';
 
 
